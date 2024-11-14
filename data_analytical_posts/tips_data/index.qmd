@@ -1,0 +1,32 @@
+---
+title: "Tips Dataset"
+author: "Musie Beyene"
+date: "2024-11-14"
+categories: [analysis]
+image: "image.jpg"
+---
+
+This is a post on the tips dataset.
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df_tips = sns.load_dataset("tips")
+df_tips.head()
+```
+
+Let us plot visit counts by days of the week.
+
+```{python}
+plt.title("Visit Counts by Day of the Week")
+sns.countplot(x="day", data=df_tips)
+```
+
+We can also examine the distribution of visit counts by day of the week and sex.
+```{python}
+plt.title("Visit Counts by Day of the Week")
+sns.countplot(x="day", hue="sex", data=df_tips)
+```

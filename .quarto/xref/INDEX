@@ -61,5 +61,8 @@
   },
   "machine_learning.qmd": {
     "machine_learning.html": "b9f07de7"
+  },
+  "data_analytical_posts/tips_data/index.qmd": {
+    "index.html": "57a4e162"
   }
 }
