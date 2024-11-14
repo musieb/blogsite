@@ -1,0 +1,65 @@
+{
+  "index.qmd": {
+    "index.html": "3a786a97"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "4bd81ef5"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "cda2717b"
+  },
+  "about.qmd": {
+    "about.html": "965eea5a"
+  },
+  "cv.qmd": {
+    "cv.html": "d0cc0354"
+  },
+  "projects_list.qmd": {
+    "projects_list.html": "eb53a3c6"
+  },
+  "statistics/post-with-code/index.qmd": {
+    "index.html": "c7e265b0"
+  },
+  "statistics/welcome/index.qmd": {
+    "index.html": "02d5c7f2"
+  },
+  "statistics.qmd": {
+    "statistics.html": "e7fd941f"
+  },
+  "data_analysis.qmd": {
+    "data_analysis.html": "2e6c809f"
+  },
+  "statistical_blogs/post-with-code/index.qmd": {
+    "index.html": "2404867a"
+  },
+  "statistical_blogs/welcome/index.qmd": {
+    "index.html": "d73068a9"
+  },
+  "data_analytical_blogs/post-with-code/index.qmd": {
+    "index.html": "7e557271"
+  },
+  "data_analytical_blogs/welcome/index.qmd": {
+    "index.html": "24296c76"
+  },
+  "statistical_posts/post-with-code/index.qmd": {
+    "index.html": "c7009f06"
+  },
+  "statistical_posts/welcome/index.qmd": {
+    "index.html": "52aebf12"
+  },
+  "data_analytical_posts/post-with-code/index.qmd": {
+    "index.html": "5e4c11c0"
+  },
+  "data_analytical_posts/welcome/index.qmd": {
+    "index.html": "b9b128d6"
+  },
+  "machine_learning_posts/post-with-code/index.qmd": {
+    "index.html": "f4c56ea8"
+  },
+  "machine_learning_posts/welcome/index.qmd": {
+    "index.html": "3bb481c8"
+  },
+  "machine_learning.qmd": {
+    "machine_learning.html": "b9f07de7"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "listingMap": {
+    "data_analysis.qmd": [
+      "data_analytical_posts"
+    ],
+    "statistics.qmd": [
+      "statistical_posts"
+    ],
+    "machine_learning.qmd": [
+      "machine_learning_posts"
+    ]
+  }
+}

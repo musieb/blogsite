@@ -1,0 +1,9 @@
+---
+title: "Simple Linear Regression Model"
+author: "Musie Beyene PhD."
+date: "2024-10-29"
+categories: [regression]
+image: "image.jpg"
+---
+
+This is a post with executable code.

@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "machine_learning.html",
+    "href": "machine_learning.html",
+    "title": "Machine Learning Posts",
+    "section": "",
+    "text": "Simple Linear Regression Model\n\n\n\n\n\n\nregression\n\n\n\n\n\n\n\n\n\nOct 29, 2024\n\n\nMusie Beyene PhD.\n\n\n\n\n\n\n\n\n\n\n\n\nBinary Classification\n\n\n\n\n\n\nclassification\n\n\n\n\n\n\n\n\n\nOct 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "statistics.html",
+    "href": "statistics.html",
+    "title": "Statistical Posts",
+    "section": "",
+    "text": "Sample-Statistics Analysis\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nOct 29, 2024\n\n\nMusie Beyene PhD.\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nOct 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "data_analytical_posts/post-with-code/index.html",
+    "href": "data_analytical_posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "machine_learning_posts/post-with-code/index.html",
+    "href": "machine_learning_posts/post-with-code/index.html",
+    "title": "Simple Linear Regression Model",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "statistical_posts/post-with-code/index.html",
+    "href": "statistical_posts/post-with-code/index.html",
+    "title": "Sample-Statistics Analysis",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "statistical_posts/welcome/index.html",
+    "href": "statistical_posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "data_analysis.html",
+    "href": "data_analysis.html",
+    "title": "Data Analytical Posts",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nOct 29, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nOct 26, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "machine_learning_posts/welcome/index.html",
+    "href": "machine_learning_posts/welcome/index.html",
+    "title": "Binary Classification",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "data_analytical_posts/welcome/index.html",
+    "href": "data_analytical_posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "listing": "/machine_learning.html",
+    "items": [
+      "/machine_learning_posts/post-with-code/index.html",
+      "/machine_learning_posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/statistics.html",
+    "items": [
+      "/statistical_posts/post-with-code/index.html",
+      "/statistical_posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/data_analysis.html",
+    "items": [
+      "/data_analytical_posts/post-with-code/index.html",
+      "/data_analytical_posts/welcome/index.html"
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Statistics
+        href: statistics.qmd
+      - text: Data Analysis
+        href: data_analysis.qmd
+      - text: Machine Leaning
+        href: machine_learning.qmd
+      - text: CV
+        href: cv.qmd
+        
+    right:
+      - icon: github
+        href: https://github.com/
+      - icon: twitter
+        href: https://twitter.com
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+
