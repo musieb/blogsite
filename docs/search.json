@@ -18,7 +18,7 @@
     "href": "data_analytical_posts/tips_data/index.html",
     "title": "Tips Dataset",
     "section": "",
-    "text": "This is a post on the tips dataset.\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf_tips = sns.load_dataset(\"tips\")\ndf_tips.head()\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4\n\n\n\n\n\n\n\nLet us plot visit counts by days of the week.\n\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", data=df_tips)\n\n\n\n\n\n\n\n\nWe can also examine the distribution of visit counts by day of the week and sex.\n\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", hue=\"sex\", data=df_tips)"
+    "text": "This is a post on the tips dataset.\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf_tips = sns.load_dataset(\"tips\")\ndf_tips.head()\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4\nLet us plot visit counts by days of the week.\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", data=df_tips)\nWe can also examine the distribution of visit counts by day of the week and sex.\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", hue=\"sex\", data=df_tips);"
   },
   {
     "objectID": "machine_learning_posts/welcome/index.html",
@@ -68,5 +68,12 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-gender",
+    "href": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-gender",
+    "title": "Tips Dataset",
+    "section": "Distribution of spending by gender",
+    "text": "Distribution of spending by gender\n\nplt.title(\"Distribution of Spending by Gender\")\nsns.kdeplot(x=\"total_bill\", hue=\"sex\", data=df_tips, fill=True);"
   }
 ]

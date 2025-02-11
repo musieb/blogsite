@@ -28,5 +28,12 @@ sns.countplot(x="day", data=df_tips)
 We can also examine the distribution of visit counts by day of the week and sex.
 ```{python}
 plt.title("Visit Counts by Day of the Week")
-sns.countplot(x="day", hue="sex", data=df_tips)
+sns.countplot(x="day", hue="sex", data=df_tips);
+```
+
+## Distribution of spending by gender
+
+```{python}
+plt.title("Distribution of Spending by Gender")
+sns.kdeplot(x="total_bill", hue="sex", data=df_tips, fill=True);
 ```
