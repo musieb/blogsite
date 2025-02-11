@@ -3,7 +3,7 @@ title: "Penguins Dataset"
 author: "Musie Beyene PhD."
 date: "2025-2-11"
 categories: [news, code, analysis]
-image: "gemini_generated_image.jpg"
+image: "gemini_generated_image.jpeg"
 ---
 
 # Penguins Dataset
