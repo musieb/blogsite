@@ -16,8 +16,8 @@
   {
     "listing": "/data_analysis.html",
     "items": [
+      "/data_analytical_posts/penguins_dataset/index.html",
       "/data_analytical_posts/tips_data/index.html",
-      "/data_analytical_posts/post-with-code/index.html",
       "/data_analytical_posts/welcome/index.html"
     ]
   }

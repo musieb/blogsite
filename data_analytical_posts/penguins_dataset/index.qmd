@@ -1,0 +1,34 @@
+---
+title: "Penguins Dataset"
+author: "Musie Beyene PhD."
+date: "2025-2-11"
+categories: [news, code, analysis]
+image: "gemini_generated_image.jpg"
+---
+
+# Penguins Dataset
+
+Let us import some libraries and load the penguins dataset.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df_penguins = sns.load_dataset("penguins")
+df_penguins.head()
+```
+Let us look at the distribution of the body mass of the penguins by species.
+
+```{python}
+plt.title("Distribution of Body Mass of Penguins")
+sns.kdeplot(x="body_mass_g", hue="species", data=df_penguins, fill=True);
+```
+Notice the distribution of the Gentoo penguins. It looks bimodal. One possible reason is a difference between male and females of that species. Let us look at the distribution of the body mass of that species by species and sex.
+
+```{python}
+plt.title("Distribution of Body Mass of Gentoo Penguins")
+sns.kdeplot(x="body_mass_g", hue="sex", data=df_penguins[df_penguins["species"] == "Gentoo"], fill=True);
+```
+
+Indeed, the separation is by sex.

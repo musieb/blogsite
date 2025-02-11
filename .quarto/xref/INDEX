@@ -64,5 +64,8 @@
   },
   "data_analytical_posts/tips_data/index.qmd": {
     "index.html": "57a4e162"
+  },
+  "data_analytical_posts/penguins_dataset/index.qmd": {
+    "index.html": "677525dd"
   }
 }
