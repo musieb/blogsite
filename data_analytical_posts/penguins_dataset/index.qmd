@@ -27,8 +27,27 @@ sns.kdeplot(x="body_mass_g", hue="species", data=df_penguins, fill=True);
 Notice the distribution of the Gentoo penguins. It looks bimodal. One possible reason is a difference between male and females of that species. Let us look at the distribution of the body mass of that species by species and sex.
 
 ```{python}
+
+df_gentoo = df_penguins[df_penguins["species"] == "Gentoo"]
+
 plt.title("Distribution of Body Mass of Gentoo Penguins")
-sns.kdeplot(x="body_mass_g", hue="sex", data=df_penguins[df_penguins["species"] == "Gentoo"], fill=True);
+sns.kdeplot(x="body_mass_g", hue="sex", data=df_gentoo, fill=True);
 ```
 
-Indeed, the separation is by sex.
+Indeed, the separation is by sex. How about the other species?
+
+```{python}
+df_chinstrap = df_penguins[df_penguins["species"] == "Chinstrap"]
+
+plt.title("Distribution of Body Mass of Chinstrap Penguins")
+sns.kdeplot(x="body_mass_g", hue="sex", data=df_chinstrap, fill=True);
+```
+
+The Chinstrap penguins also seem bimodal. Now let us try the Adelie penguins.
+
+```{python}
+df_adelie = df_penguins[df_penguins["species"] == "Adelie"]
+
+plt.title("Distribution of Body Mass of Adelie Penguins")
+sns.kdeplot(x="body_mass_g", hue="sex", data=df_adelie, fill=True);
+```
