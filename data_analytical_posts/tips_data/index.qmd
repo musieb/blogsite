@@ -6,7 +6,7 @@ categories: [analysis]
 image: "image.jpg"
 ---
 
-This is a post on the tips dataset.
+This is a post on the tips dataset. This dataset is a record of 
 
 ```{python}
 import pandas as pd
@@ -21,6 +21,8 @@ df_tips.head()
 Let us plot visit counts by days of the week.
 
 ```{python}
+plt.style.use("bmh")
+
 plt.title("Visit Counts by Day of the Week")
 sns.countplot(x="day", data=df_tips)
 ```
@@ -35,5 +37,12 @@ sns.countplot(x="day", hue="sex", data=df_tips);
 
 ```{python}
 plt.title("Distribution of Spending by Gender")
-sns.kdeplot(x="total_bill", hue="sex", data=df_tips, fill=True);
+sns.histplot(x="total_bill", hue="sex", data=df_tips, fill=True);
+```
+
+## Distribution of spending by smoking status
+
+```{python}
+plt.title("Distribution of Spending by Smoking Status")
+sns.histplot(x="total_bill", hue="smoker", data=df_tips, fill=True);
 ```
