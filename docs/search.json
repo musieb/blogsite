@@ -74,7 +74,7 @@
     "href": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-smoking-status",
     "title": "Tips Dataset",
     "section": "Distribution of spending by smoking status",
-    "text": "Distribution of spending by smoking status\n\nplt.title(\"Distribution of Spending by Smoking Status\")\nsns.histplot(x=\"total_bill\", hue=\"smoker\", data=df_tips, fill=True);"
+    "text": "Distribution of spending by smoking status\n\nplt.title(\"Distribution of Spending by Smoking Status\")\nsns.kdeplot(x=\"total_bill\", hue=\"smoker\", data=df_tips, fill=True);"
   },
   {
     "objectID": "data_analytical_posts/penguins_dataset/index.html",
@@ -82,5 +82,12 @@
     "title": "Penguins Dataset",
     "section": "",
     "text": "Penguins Dataset\nLet us import some libraries and load the penguins dataset.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf_penguins = sns.load_dataset(\"penguins\")\ndf_penguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMale\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFemale\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFemale\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nFemale\n\n\n\n\n\n\n\nLet us look at the distribution of the body mass of the penguins by species.\n\nplt.title(\"Distribution of Body Mass of Penguins\")\nsns.kdeplot(x=\"body_mass_g\", hue=\"species\", data=df_penguins, fill=True);\n\n\n\n\n\n\n\n\nNotice the distribution of the Gentoo penguins. It looks bimodal. One possible reason is a difference between male and females of that species. Let us look at the distribution of the body mass of that species by species and sex.\n\ndf_gentoo = df_penguins[df_penguins[\"species\"] == \"Gentoo\"]\n\nplt.title(\"Distribution of Body Mass of Gentoo Penguins\")\nsns.kdeplot(x=\"body_mass_g\", hue=\"sex\", data=df_gentoo, fill=True);\n\n\n\n\n\n\n\n\nIndeed, the separation is by sex. How about the other species?\n\ndf_chinstrap = df_penguins[df_penguins[\"species\"] == \"Chinstrap\"]\n\nplt.title(\"Distribution of Body Mass of Chinstrap Penguins\")\nsns.kdeplot(x=\"body_mass_g\", hue=\"sex\", data=df_chinstrap, fill=True);\n\n\n\n\n\n\n\n\nThe Chinstrap penguins also seem bimodal. Now let us try the Adelie penguins.\n\ndf_adelie = df_penguins[df_penguins[\"species\"] == \"Adelie\"]\n\nplt.title(\"Distribution of Body Mass of Adelie Penguins\")\nsns.kdeplot(x=\"body_mass_g\", hue=\"sex\", data=df_adelie, fill=True);"
+  },
+  {
+    "objectID": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-day",
+    "href": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-day",
+    "title": "Tips Dataset",
+    "section": "Distribution of spending by day",
+    "text": "Distribution of spending by day\n\nplt.title(\"Distribution of Spending by Day\")\nsns.histplot(x=\"total_bill\", hue=\"day\", data=df_tips, fill=True);\n\n\n\n\n\n\n\n\nWe can also include boxplots.\n\nplt.title(\"Distribution of Spending by Day\")\nsns.boxplot(x=\"day\", y=\"total_bill\", data=df_tips);"
   }
 ]

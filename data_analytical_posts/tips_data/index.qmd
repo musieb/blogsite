@@ -44,5 +44,19 @@ sns.histplot(x="total_bill", hue="sex", data=df_tips, fill=True);
 
 ```{python}
 plt.title("Distribution of Spending by Smoking Status")
-sns.histplot(x="total_bill", hue="smoker", data=df_tips, fill=True);
+sns.kdeplot(x="total_bill", hue="smoker", data=df_tips, fill=True);
+```
+
+## Distribution of spending by day
+
+```{python}
+plt.title("Distribution of Spending by Day")
+sns.histplot(x="total_bill", hue="day", data=df_tips, fill=True);
+```
+
+We can also include boxplots.
+
+```{python}
+plt.title("Distribution of Spending by Day")
+sns.boxplot(x="day", y="total_bill", data=df_tips);
 ```
