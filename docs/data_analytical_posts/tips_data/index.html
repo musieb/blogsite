@@ -204,8 +204,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>This is a post on the tips dataset. This dataset is a record of</p>
-<div id="595e9bd0" class="cell" data-execution_count="1">
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the <a href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset">tips dataset</a>. This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.</p>
+<p>The objective is to demonstrate analysis techniques, including visualisation, for</p>
+<ol type="1">
+<li>univariate
+<ul>
+<li>categorical</li>
+<li>numerical</li>
+</ul></li>
+<li>bivariate
+<ul>
+<li>categorical</li>
+<li>numerical</li>
+<li>mixed</li>
+</ul></li>
+</ol>
+<p>variables.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Have you ever wondered if your tipping habits are typical? If tipping depends on the day of the week or, how exactly the total bill affects tipping? Well, we can explore some of these and other questions for a widely used dataset of real restaurant visits collected by a waiter.</p>
+<p>The <a href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset">tips dataset</a>, as it is known, has 244 records each with 7 features. The features are</p>
+<ul>
+<li>total_bill: The total amount of the bill in dollars (numeric).</li>
+<li>tip : The tip amount in dollars (numeric).</li>
+<li>sex : The gender of the person who paid the bill (categorical: Male, Female).</li>
+<li>smoker : Indicates whether there were smokers in the party (categorical: Yes, No).</li>
+<li>day : The day of the week the meal was consumed (categorical: Thur, Fri, Sat, Sun).</li>
+<li>time : The time of day the meal was consumed (categorical: Lunch, Dinner).</li>
+<li>size : The size of the party (numeric, indicating the number of people).</li>
+</ul>
+<div id="4241b92d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -213,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df_tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_tips.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -288,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let us plot visit counts by days of the week.</p>
-<div id="132d9e0d" class="cell" data-execution_count="2">
+<div id="b9265475" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">"bmh"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Visit Counts by Day of the Week"</span>)</span>
@@ -302,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can also examine the distribution of visit counts by day of the week and sex.</p>
-<div id="a17b460a" class="cell" data-execution_count="3">
+<div id="c0ef105a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Visit Counts by Day of the Week"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"day"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, data<span class="op">=</span>df_tips)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -313,9 +344,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
 <section id="distribution-of-spending-by-gender" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-gender">Distribution of spending by gender</h2>
-<div id="f5035c55" class="cell" data-execution_count="4">
+<div id="b732ca3c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Gender"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -329,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="distribution-of-spending-by-smoking-status" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-smoking-status">Distribution of spending by smoking status</h2>
-<div id="f770e901" class="cell" data-execution_count="5">
+<div id="f9fbb001" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Smoking Status"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"smoker"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -343,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="distribution-of-spending-by-day" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-day">Distribution of spending by day</h2>
-<div id="8e87820b" class="cell" data-execution_count="6">
+<div id="392ce7d3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Day"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"day"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -355,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can also include boxplots.</p>
-<div id="86477d61" class="cell" data-execution_count="7">
+<div id="16a9854e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Day"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">"day"</span>, y<span class="op">=</span><span class="st">"total_bill"</span>, data<span class="op">=</span>df_tips)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">

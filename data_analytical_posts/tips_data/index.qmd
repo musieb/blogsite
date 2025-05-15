@@ -5,8 +5,38 @@ date: "2024-11-14"
 categories: [analysis]
 image: "image.jpg"
 ---
+## Goals
+In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset). This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.
 
-This is a post on the tips dataset. This dataset is a record of 
+The objective is to demonstrate analysis techniques, including visualisation, for
+
+1. univariate 
+    - categorical 
+    - numerical
+
+
+2. bivariate 
+    - categorical 
+    - numerical 
+    - mixed 
+
+variables.
+
+
+## Introduction
+
+Have you ever wondered if your tipping habits are typical? If tipping depends on the day of the week or, how exactly the total bill affects tipping? Well, we can explore some of these and other questions for a widely used dataset of real restaurant visits collected by a waiter.
+
+The [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset), as it is known, has 244 records each with 7 features. The features are
+
+
+- total_bill: The total amount of the bill in dollars (numeric).
+- tip       : The tip amount in dollars (numeric).
+- sex       : The gender of the person who paid the bill (categorical: Male, Female).
+- smoker    : Indicates whether there were smokers in the party (categorical: Yes, No).
+- day       : The day of the week the meal was consumed (categorical: Thur, Fri, Sat, Sun).
+- time      : The time of day the meal was consumed (categorical: Lunch, Dinner).
+- size      : The size of the party (numeric, indicating the number of people).
 
 ```{python}
 import pandas as pd
@@ -17,6 +47,9 @@ import seaborn as sns
 df_tips = sns.load_dataset("tips")
 df_tips.head()
 ```
+
+
+
 
 Let us plot visit counts by days of the week.
 

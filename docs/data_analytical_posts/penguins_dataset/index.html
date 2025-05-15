@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="penguins-dataset" class="level1">
 <h1>Penguins Dataset</h1>
 <p>Let us import some libraries and load the penguins dataset.</p>
-<div id="6ebfaac5" class="cell" data-execution_count="1">
+<div id="bce68f32" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -291,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let us look at the distribution of the body mass of the penguins by species.</p>
-<div id="ca91fb21" class="cell" data-execution_count="2">
+<div id="f55dfcf7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Body Mass of Penguins"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(x<span class="op">=</span><span class="st">"body_mass_g"</span>, hue<span class="op">=</span><span class="st">"species"</span>, data<span class="op">=</span>df_penguins, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Notice the distribution of the Gentoo penguins. It looks bimodal. One possible reason is a difference between male and females of that species. Let us look at the distribution of the body mass of that species by species and sex.</p>
-<div id="c3db444d" class="cell" data-execution_count="3">
+<div id="36a67fb3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_gentoo <span class="op">=</span> df_penguins[df_penguins[<span class="st">"species"</span>] <span class="op">==</span> <span class="st">"Gentoo"</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Body Mass of Gentoo Penguins"</span>)</span>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Indeed, the separation is by sex. How about the other species?</p>
-<div id="0f5ca7d0" class="cell" data-execution_count="4">
+<div id="ad7c7bde" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_chinstrap <span class="op">=</span> df_penguins[df_penguins[<span class="st">"species"</span>] <span class="op">==</span> <span class="st">"Chinstrap"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Body Mass of Chinstrap Penguins"</span>)</span>
@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The Chinstrap penguins also seem bimodal. Now let us try the Adelie penguins.</p>
-<div id="123c3a52" class="cell" data-execution_count="5">
+<div id="7b36ec00" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_adelie <span class="op">=</span> df_penguins[df_penguins[<span class="st">"species"</span>] <span class="op">==</span> <span class="st">"Adelie"</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Body Mass of Adelie Penguins"</span>)</span>

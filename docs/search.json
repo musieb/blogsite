@@ -60,7 +60,7 @@
     "href": "data_analytical_posts/tips_data/index.html",
     "title": "Tips Dataset",
     "section": "",
-    "text": "This is a post on the tips dataset. This dataset is a record of\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf_tips = sns.load_dataset(\"tips\")\ndf_tips.head()\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4\nLet us plot visit counts by days of the week.\nplt.style.use(\"bmh\")\n\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", data=df_tips)\nWe can also examine the distribution of visit counts by day of the week and sex.\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", hue=\"sex\", data=df_tips);"
+    "text": "In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the tips dataset. This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.\nThe objective is to demonstrate analysis techniques, including visualisation, for\n\nunivariate\n\ncategorical\nnumerical\n\nbivariate\n\ncategorical\nnumerical\nmixed\n\n\nvariables."
   },
   {
     "objectID": "data_analytical_posts/tips_data/index.html#distribution-of-spending-by-gender",
@@ -89,5 +89,19 @@
     "title": "Tips Dataset",
     "section": "Distribution of spending by day",
     "text": "Distribution of spending by day\n\nplt.title(\"Distribution of Spending by Day\")\nsns.histplot(x=\"total_bill\", hue=\"day\", data=df_tips, fill=True);\n\n\n\n\n\n\n\n\nWe can also include boxplots.\n\nplt.title(\"Distribution of Spending by Day\")\nsns.boxplot(x=\"day\", y=\"total_bill\", data=df_tips);"
+  },
+  {
+    "objectID": "data_analytical_posts/tips_data/index.html#introduction",
+    "href": "data_analytical_posts/tips_data/index.html#introduction",
+    "title": "Tips Dataset",
+    "section": "Introduction",
+    "text": "Introduction\nHave you ever wondered if your tipping habits are typical? If tipping depends on the day of the week or, how exactly the total bill affects tipping? Well, we can explore some of these and other questions for a widely used dataset of real restaurant visits collected by a waiter.\nThe tips dataset, as it is known, has 244 records each with 7 features. The features are\n\ntotal_bill: The total amount of the bill in dollars (numeric).\ntip : The tip amount in dollars (numeric).\nsex : The gender of the person who paid the bill (categorical: Male, Female).\nsmoker : Indicates whether there were smokers in the party (categorical: Yes, No).\nday : The day of the week the meal was consumed (categorical: Thur, Fri, Sat, Sun).\ntime : The time of day the meal was consumed (categorical: Lunch, Dinner).\nsize : The size of the party (numeric, indicating the number of people).\n\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf_tips = sns.load_dataset(\"tips\")\ndf_tips.head()\n\n\n\n\n\n\n\n\ntotal_bill\ntip\nsex\nsmoker\nday\ntime\nsize\n\n\n\n\n0\n16.99\n1.01\nFemale\nNo\nSun\nDinner\n2\n\n\n1\n10.34\n1.66\nMale\nNo\nSun\nDinner\n3\n\n\n2\n21.01\n3.50\nMale\nNo\nSun\nDinner\n3\n\n\n3\n23.68\n3.31\nMale\nNo\nSun\nDinner\n2\n\n\n4\n24.59\n3.61\nFemale\nNo\nSun\nDinner\n4\n\n\n\n\n\n\n\nLet us plot visit counts by days of the week.\n\nplt.style.use(\"bmh\")\n\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", data=df_tips)\n\n\n\n\n\n\n\n\nWe can also examine the distribution of visit counts by day of the week and sex.\n\nplt.title(\"Visit Counts by Day of the Week\")\nsns.countplot(x=\"day\", hue=\"sex\", data=df_tips);"
+  },
+  {
+    "objectID": "data_analytical_posts/tips_data/index.html#goals",
+    "href": "data_analytical_posts/tips_data/index.html#goals",
+    "title": "Tips Dataset",
+    "section": "",
+    "text": "In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the tips dataset. This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.\nThe objective is to demonstrate analysis techniques, including visualisation, for\n\nunivariate\n\ncategorical\nnumerical\n\nbivariate\n\ncategorical\nnumerical\nmixed\n\n\nvariables."
   }
 ]
