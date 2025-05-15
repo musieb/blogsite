@@ -17,11 +17,14 @@ The objective is to demonstrate analysis techniques, including visualisation, fo
 
 2. bivariate 
     - categorical 
-    - numerical 
+    - numerical and
     - mixed 
 
-variables.
+variables. We will use
 
+- [pandas](https://pandas.pydata.org/) for data wrangling,
+- [seaborn](https://seaborn.pydata.org/index.html) and [matplotlib](https://matplotlib.org/)for visualisation and
+- [statsmodels](https://www.statsmodels.org/stable/index.html) for statistical analysis.
 
 ## Introduction
 
@@ -30,23 +33,82 @@ Have you ever wondered if your tipping habits are typical? If tipping depends on
 The [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset), as it is known, has 244 records each with 7 features. The features are
 
 
-- total_bill: The total amount of the bill in dollars (numeric).
-- tip       : The tip amount in dollars (numeric).
-- sex       : The gender of the person who paid the bill (categorical: Male, Female).
-- smoker    : Indicates whether there were smokers in the party (categorical: Yes, No).
-- day       : The day of the week the meal was consumed (categorical: Thur, Fri, Sat, Sun).
-- time      : The time of day the meal was consumed (categorical: Lunch, Dinner).
-- size      : The size of the party (numeric, indicating the number of people).
+|   Feature |                   Description                     |  Data Type | Range/Levels            |
+| --------- | --------------------------------------------------|------------|-------------------------| 
+| total_bill| The total amount of the bill in dollars           | numeric    |    [3.07, 50.81] USD    |
+| tip       | The tip amount in dollars                         | numeric    |    [1.00, 10.00] USD    |
+| sex       | The gender of the person who paid the bill        | categorical|    Male, Female         |
+| smoker    | Indicates whether there were smokers in the party | categorical|    Yes, No              |
+| day       | The day of the week the meal was consumed         | categorical|    Thur, Fri, Sat, Sun  |
+| time      | The time of day the meal was consumed             | categorical|    Lunch, Dinner        |
+| size      | The size(in numer of persons) of the party        | numeric    |    [1, 6] Persons       |
+: Tips dataset features {#tbl-fields_description}
+
+### Considerations : Context for the Data
+
+When performing analysis it is important to have some context for the data. It is good practice to consider the following questions
+
+- how 
+- why 
+- where and 
+- when 
+
+the data was collected. This will determine what you can expect from your analysis and how you can present your findings.
+
+For example, the tips data can potentially allow us to determine the takings of the restaurant for the period represented (assuming we have that information). However, this assumes the waiter recorded all takings of this period. It might be that the waiter, motivated by his own tip takings, only recorded visits that he/she served. Perhaps the waiter only works part time or maybe, given the sheer volume of visits, the waiter might have chosen a random set of visits to record. 
+
+Now, suppose that the waiter recorded all transactions correctly and that we are able to calculate the takings (or any other statistic) correctly. Can we take the statistics to be representative or typical of visits currently. Was the data collected before the volume and composition of visits changed dramatically following the construction of a football stadium nearby. Perhaps the data was collected during a festival, a particularly busy period for the restaurant. All these questions are important.
+
+For our purposes we will assume the data to be representative in every sense and proceed to ask questions,and demonstrate analytical techniques, unrestricted.
+
+## The Data
+
+### Loading and inspecting the dataset
+
+As mensioned earlier, the dataset is available as a [pandas dataframe](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) from the seaborn library. So, let us load pandas and seaborn. We will also use seaborn as our primary visualization tool however, we will also use matplotlib. Additionally, we will use [statsmodels](https://www.statsmodels.org/stable/index.html) for statistical analysis, in particular for testing statistical hypothesis.
+
+So, let us import these libraries, load our data and inspect the first few records.
 
 ```{python}
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import statsmodels.api as sm
 
 df_tips = sns.load_dataset("tips")
 df_tips.head()
 ```
+
+Let us examine what categories pandas has assigned to each variable.
+
+```{python}
+df_tips.dtypes
+```
+
+It is common for datasets to have missing data. The `info()` method of a `DataFrame` can be used to examine the number of missing values in each column.
+```{python}
+df_tips.info()
+
+```
+
+Here we see that there are a total of 244 records inxed 0 to 243. `info()` also  gives us the data type designation of each column (variable/field). There are no missing values on this set as indicated by 244 non-null counts for all the columns. In case of missing values, the Non-Null Count column displays the number of null values. This is of course the count by column. Finally, we are told size of the DataFrame in memory is 7.4 kilobytes.
+
+For numerical variables we can get the five-point summary statistics, and more, as follows
+```{python}
+df_tips.describe()
+
+```
+
+We can see that the summary from `info()` and `describe()` are consistent and agree with table @tbl-fields_description.
+
+
+
+
+
+
+----
+
+
 
 
 
