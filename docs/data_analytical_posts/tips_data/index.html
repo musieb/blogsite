@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="goals" class="level2">
 <h2 class="anchored" data-anchor-id="goals">Goals</h2>
-<p>In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the <a href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset">tips dataset</a>. This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.</p>
+<p>In this blogpost we will demonstrate some common <code>exploratory data analysis (EDA)</code> techniques using the <a href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset">tips dataset</a>. This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.</p>
 <p>The objective is to demonstrate analysis techniques, including visualisation, for</p>
 <ol type="1">
 <li>univariate
@@ -247,54 +247,54 @@ Table&nbsp;1: Tips dataset features
 </colgroup>
 <thead>
 <tr class="header">
-<th>Feature</th>
-<th>Description</th>
-<th>Data Type</th>
-<th>Range/Levels</th>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Range/Levels</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>total_bill</td>
-<td>The total amount of the bill in dollars</td>
-<td>numeric</td>
-<td>[3.07, 50.81] USD</td>
+<td style="text-align: left;">total_bill</td>
+<td style="text-align: left;">The total amount of the bill in dollars</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">[3.07, 50.81] USD</td>
 </tr>
 <tr class="even">
-<td>tip</td>
-<td>The tip amount in dollars</td>
-<td>numeric</td>
-<td>[1.00, 10.00] USD</td>
+<td style="text-align: left;">tip</td>
+<td style="text-align: left;">The tip amount in dollars</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">[1.00, 10.00] USD</td>
 </tr>
 <tr class="odd">
-<td>sex</td>
-<td>The gender of the person who paid the bill</td>
-<td>categorical</td>
-<td>Male, Female</td>
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">The gender of the person who paid the bill</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">Male, Female</td>
 </tr>
 <tr class="even">
-<td>smoker</td>
-<td>Indicates whether there were smokers in the party</td>
-<td>categorical</td>
-<td>Yes, No</td>
+<td style="text-align: left;">smoker</td>
+<td style="text-align: left;">Indicates whether there were smokers in the party</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">Yes, No</td>
 </tr>
 <tr class="odd">
-<td>day</td>
-<td>The day of the week the meal was consumed</td>
-<td>categorical</td>
-<td>Thur, Fri, Sat, Sun</td>
+<td style="text-align: left;">day</td>
+<td style="text-align: left;">The day of the week the meal was consumed</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">Thur, Fri, Sat, Sun</td>
 </tr>
 <tr class="even">
-<td>time</td>
-<td>The time of day the meal was consumed</td>
-<td>categorical</td>
-<td>Lunch, Dinner</td>
+<td style="text-align: left;">time</td>
+<td style="text-align: left;">The time of day the meal was consumed</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">Lunch, Dinner</td>
 </tr>
 <tr class="odd">
-<td>size</td>
-<td>The size(in numer of persons) of the party</td>
-<td>numeric</td>
-<td>[1, 6] Persons</td>
+<td style="text-align: left;">size</td>
+<td style="text-align: left;">The size(in numer of persons) of the party</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">[1, 6] Persons</td>
 </tr>
 </tbody>
 </table>
@@ -316,13 +316,11 @@ Table&nbsp;1: Tips dataset features
 <p>For our purposes we will assume the data to be representative in every sense and proceed to ask questions,and demonstrate analytical techniques, unrestricted.</p>
 </section>
 </section>
-<section id="the-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
-<section id="loading-and-inspecting-the-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="loading-and-inspecting-the-dataset">Loading and inspecting the dataset</h3>
+<section id="loading-and-inspecting-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="loading-and-inspecting-the-dataset">Loading and inspecting the dataset</h2>
 <p>As mensioned earlier, the dataset is available as a <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas dataframe</a> from the seaborn library. So, let us load pandas and seaborn. We will also use seaborn as our primary visualization tool however, we will also use matplotlib. Additionally, we will use <a href="https://www.statsmodels.org/stable/index.html">statsmodels</a> for statistical analysis, in particular for testing statistical hypothesis.</p>
 <p>So, let us import these libraries, load our data and inspect the first few records.</p>
-<div id="6bc6c8d5" class="cell" data-execution_count="1">
+<div id="e0675031" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -330,7 +328,7 @@ Table&nbsp;1: Tips dataset features
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df_tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_tips.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="181">
 <div>
 
 
@@ -405,9 +403,9 @@ Table&nbsp;1: Tips dataset features
 </div>
 </div>
 <p>Let us examine what categories pandas has assigned to each variable.</p>
-<div id="6f35c07d" class="cell" data-execution_count="2">
+<div id="49916770" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_tips.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div class="cell-output cell-output-display" data-execution_count="182">
 <pre><code>total_bill     float64
 tip            float64
 sex           category
@@ -419,7 +417,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>It is common for datasets to have missing data. The <code>info()</code> method of a <code>DataFrame</code> can be used to examine the number of missing values in each column.</p>
-<div id="330417e3" class="cell" data-execution_count="3">
+<div id="c964e610" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_tips.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -438,11 +436,11 @@ dtypes: category(4), float64(2), int64(1)
 memory usage: 7.4 KB</code></pre>
 </div>
 </div>
-<p>Here we see that there are a total of 244 records inxed 0 to 243. <code>info()</code> also gives us the data type designation of each column (variable/field). There are no missing values on this set as indicated by 244 non-null counts for all the columns. In case of missing values, the Non-Null Count column displays the number of null values. This is of course the count by column. Finally, we are told size of the DataFrame in memory is 7.4 kilobytes.</p>
+<p>Here we see that there are a total of 244 records inxed 0 to 243. <code>info()</code> also gives us the data type designation of each column (variable/field). There are no missing values on this set as indicated by 244 non-null counts for all the columns. If we had missing values, the Non-Null Count column display a number less than 244, the number of records. Less by the number of missing values for the column. Finally, we are given the size of the DataFrame in memory as 7.4 kilobytes.</p>
 <p>For numerical variables we can get the five-point summary statistics, and more, as follows</p>
-<div id="ad05bee9" class="cell" data-execution_count="4">
+<div id="08f4a23f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_tips.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="184">
 <div>
 
 
@@ -510,10 +508,44 @@ memory usage: 7.4 KB</code></pre>
 </div>
 </div>
 </div>
-<p>We can see that the summary from <code>info()</code> and <code>describe()</code> are consistent and agree with table <a href="#tbl-fields_description" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>We can see that the summary from <code>info()</code> and <code>describe()</code> are consistent and agree with table <a href="#tbl-fields_description" class="quarto-xref">Table&nbsp;1</a>. The first row labled <code>count</code> is simply the number of entries for each column shown. It is displayed with trailing decimal zeros because the each column of a <code>DataFrame</code> must be of the same type and all the other rows are generally real valued.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>When analysing data we can take two complementary approaches, we might</p>
+<ol type="1">
+<li>have specific questions we want to examine or</li>
+<li>choose to ask what analysis the data allows.</li>
+</ol>
+<p>These two approaches correspond approximately to <code>comfirmatory</code> and <code>exploratory</code> data analysis respectively. Fromally a <code>confirmatory</code> analysis will formulate clear hypothesis, design/plan a set of statistical tests and then perform the tests on the data. A common feature of many <code>confirmatory</code> analysis is that the design of the data collection process. On the other hand <code>exploratory</code> analysis, as its name suggests, is more exploratory in nature and is driven by the (aften already collected) data. It aims to discover the structure of and patterns in the data. Hypothesis can be formulated but these are motivated by the data as we will see by example.</p>
+<p>In order to explore a dataset systematically it is natural to consider the examination of the variables individually. For numerical variables, the questions to ask would involve their distribution. More concretely the typical or mean values of the variable and its dispersion or spread of values. For categorical variables, we would like to know the frequency of each of its possible values (or Level). These measures can be numerical values or graphical visualisations.</p>
+<p>When considering multiple variables we can examine the association/correlation between variables. These can be numerical correlation calculations, tabular frequency and related heatmaps or other graphical visualisations as we shall see below.</p>
+<section id="exploring-individual-variables-univariate-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-individual-variables-univariate-analysis">Exploring Individual Variables : Univariate Analysis</h3>
+<p>Let us examine the variables individually. We will start with categorical and move on to numerical variables.</p>
+</section>
+<section id="categorical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-variables">Categorical Variables</h3>
+<p>The categorical variables are <code>sex</code>, <code>smoker</code>, <code>day</code> and <code>time</code>. WHat can we ask of</p>
+</section>
+<section id="numerical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="numerical-variables">Numerical Variables</h3>
+</section>
+</section>
+<section id="bivariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-analysis">Bivariate Analysis</h2>
+<section id="categorical-bivariate-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-bivariate-analysis">Categorical Bivariate Analysis</h3>
+</section>
+<section id="numerical-bivariate-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="numerical-bivariate-analysis">Numerical Bivariate Analysis</h3>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <hr>
 <p>Let us plot visit counts by days of the week.</p>
-<div id="fc667d6a" class="cell" data-execution_count="5">
+<div id="69568ded" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">"bmh"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Visit Counts by Day of the Week"</span>)</span>
@@ -527,7 +559,7 @@ memory usage: 7.4 KB</code></pre>
 </div>
 </div>
 <p>We can also examine the distribution of visit counts by day of the week and sex.</p>
-<div id="59f45c69" class="cell" data-execution_count="6">
+<div id="fbb3aac9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Visit Counts by Day of the Week"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"day"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, data<span class="op">=</span>df_tips)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -539,10 +571,9 @@ memory usage: 7.4 KB</code></pre>
 </div>
 </div>
 </section>
-</section>
 <section id="distribution-of-spending-by-gender" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-gender">Distribution of spending by gender</h2>
-<div id="12eb324e" class="cell" data-execution_count="7">
+<div id="3169f8de" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Gender"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -556,7 +587,7 @@ memory usage: 7.4 KB</code></pre>
 </section>
 <section id="distribution-of-spending-by-smoking-status" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-smoking-status">Distribution of spending by smoking status</h2>
-<div id="c833a1ac" class="cell" data-execution_count="8">
+<div id="4ade7d45" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Smoking Status"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"smoker"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -570,7 +601,7 @@ memory usage: 7.4 KB</code></pre>
 </section>
 <section id="distribution-of-spending-by-day" class="level2">
 <h2 class="anchored" data-anchor-id="distribution-of-spending-by-day">Distribution of spending by day</h2>
-<div id="471a4988" class="cell" data-execution_count="9">
+<div id="f46be148" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Day"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"day"</span>, data<span class="op">=</span>df_tips, fill<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -582,7 +613,7 @@ memory usage: 7.4 KB</code></pre>
 </div>
 </div>
 <p>We can also include boxplots.</p>
-<div id="22a60292" class="cell" data-execution_count="10">
+<div id="67190d45" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Spending by Day"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">"day"</span>, y<span class="op">=</span><span class="st">"total_bill"</span>, data<span class="op">=</span>df_tips)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">

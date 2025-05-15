@@ -6,7 +6,7 @@ categories: [analysis]
 image: "image.jpg"
 ---
 ## Goals
-In this blogpost we will demonstrate some common exploratory data analysis (EDA) techniques using the [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset). This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.
+In this blogpost we will demonstrate some common `exploratory data analysis (EDA)` techniques using the [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.html#seaborn.load_dataset). This dataset is a record of real visits to a restaurant collected by a waiter. It is a small set of structured data with a good mix of categorical and numerical features. This affords us the opportunity to apply a surprisingly wide range of EDA techniques in a contextualised analysis, demostrating the utility of these techniques and the associated python packages.
 
 The objective is to demonstrate analysis techniques, including visualisation, for
 
@@ -34,7 +34,7 @@ The [tips dataset](https://seaborn.pydata.org/generated/seaborn.load_dataset.htm
 
 
 |   Feature |                   Description                     |  Data Type | Range/Levels            |
-| --------- | --------------------------------------------------|------------|-------------------------| 
+| :-------- | :-------------------------------------------------|:-----------|:------------------------| 
 | total_bill| The total amount of the bill in dollars           | numeric    |    [3.07, 50.81] USD    |
 | tip       | The tip amount in dollars                         | numeric    |    [1.00, 10.00] USD    |
 | sex       | The gender of the person who paid the bill        | categorical|    Male, Female         |
@@ -61,9 +61,8 @@ Now, suppose that the waiter recorded all transactions correctly and that we are
 
 For our purposes we will assume the data to be representative in every sense and proceed to ask questions,and demonstrate analytical techniques, unrestricted.
 
-## The Data
 
-### Loading and inspecting the dataset
+## Loading and inspecting the dataset
 
 As mensioned earlier, the dataset is available as a [pandas dataframe](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) from the seaborn library. So, let us load pandas and seaborn. We will also use seaborn as our primary visualization tool however, we will also use matplotlib. Additionally, we will use [statsmodels](https://www.statsmodels.org/stable/index.html) for statistical analysis, in particular for testing statistical hypothesis.
 
@@ -91,7 +90,7 @@ df_tips.info()
 
 ```
 
-Here we see that there are a total of 244 records inxed 0 to 243. `info()` also  gives us the data type designation of each column (variable/field). There are no missing values on this set as indicated by 244 non-null counts for all the columns. In case of missing values, the Non-Null Count column displays the number of null values. This is of course the count by column. Finally, we are told size of the DataFrame in memory is 7.4 kilobytes.
+Here we see that there are a total of 244 records inxed 0 to 243. `info()` also  gives us the data type designation of each column (variable/field). There are no missing values on this set as indicated by 244 non-null counts for all the columns. If we had missing values, the Non-Null Count column display a number less than 244, the number of records. Less by the number of missing values for the column. Finally, we are given the size of the DataFrame in memory as 7.4 kilobytes.
 
 For numerical variables we can get the five-point summary statistics, and more, as follows
 ```{python}
@@ -99,12 +98,39 @@ df_tips.describe()
 
 ```
 
-We can see that the summary from `info()` and `describe()` are consistent and agree with table @tbl-fields_description.
+We can see that the summary from `info()` and `describe()` are consistent and agree with table @tbl-fields_description. The first row labled `count` is simply the number of entries for each column shown. It is displayed with trailing decimal zeros because the each column of a `DataFrame` must be of the same type and all the other rows are generally real valued.
+
+## Analysis
+
+When analysing data we can take two complementary approaches, we might
+
+1. have specific questions we want to examine or
+2. choose to ask what analysis the data allows.
+
+These two approaches correspond approximately to `comfirmatory` and `exploratory` data analysis respectively. Fromally a `confirmatory` analysis will formulate clear hypothesis, design/plan a set of statistical tests and then perform the tests on the data. A common feature of many `confirmatory` analysis is that the design of the data collection process. On the other hand `exploratory` analysis, as its name suggests, is more exploratory in nature and is driven by the (aften already collected) data. It aims to discover the structure of and patterns in the data. Hypothesis can be formulated but these are motivated by the data as we will see by example.
+
+In order to explore a dataset systematically it is natural to consider the examination of the variables individually. For numerical variables, the questions to ask would involve their distribution. More concretely the typical or mean values of the variable and its dispersion or spread of values. For categorical variables, we would like to know the frequency of each of its possible values (or Level). These measures can be numerical values or graphical visualisations. 
+
+When considering multiple variables we can examine the association/correlation between variables. These can be numerical correlation calculations, tabular frequency and related heatmaps or other graphical visualisations as we shall see below.
+
+### Exploring Individual Variables : Univariate Analysis
+
+Let us examine the variables individually. We will start with categorical and move on to numerical variables.
+
+### Categorical Variables
+
+The categorical variables are `sex`, `smoker`, `day` and `time`. WHat can we ask of 
 
 
+### Numerical Variables
 
+## Bivariate Analysis
 
+### Categorical Bivariate Analysis
 
+### Numerical Bivariate Analysis
+
+## Conclusion
 
 ----
 
